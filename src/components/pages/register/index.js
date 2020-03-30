@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import Routes from './routes'
-import './global.css'
+import './style.css'
 
-class App extends Component{
+class Register extends Component{
   constructor(props){
     super(props)
     this.state = {
@@ -14,10 +13,10 @@ class App extends Component{
   render() {
     return(
       <div>
-        <Routes/>
+
       </div>
     )
   }
 }
 
-export default App;
+export default Register;

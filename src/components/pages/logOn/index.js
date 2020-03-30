@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './style.css'
 import heroesImg from '../../../assets/heroes.png'
 import logoImg from '../../../assets/logo.svg'
@@ -23,10 +24,10 @@ class LogIn extends Component{
                 <input placeholder='Sua ID'></input>
                 <button type='submit' className='button'>Entrar</button>
 
-                <a href='/register'>
+                <Link to='/register'>
                     Não tenho Cadastro
                     <FiLogIn size={16} color='#E02041'/>
-                </a>
+                </Link>
               </form>
           </section>
           <img src={heroesImg} alt='heroes'></img>
