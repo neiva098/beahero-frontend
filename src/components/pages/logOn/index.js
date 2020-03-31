@@ -24,7 +24,7 @@ class LogIn extends Component{
                 <input placeholder='Sua ID'></input>
                 <button type='submit' className='button'>Entrar</button>
 
-                <Link to='/register'>
+                <Link to='/register' className='back-link'>
                     Não tenho Cadastro
                     <FiLogIn size={16} color='#E02041'/>
                 </Link>
