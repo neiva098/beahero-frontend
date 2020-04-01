@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import api from '../../../services/api'
 import logoImg from '../../../assets/logo.svg'
 import './style.css'
 
@@ -8,9 +9,30 @@ class NewIncidend extends Component{
   constructor(props){
     super(props)
     this.state = {
+      title: '',
+      description: '',
+      value: ''
+    }
+    this.changeState = this.changeState.bind(this)
+  }
 
+  changeState(e) {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  async handleSubmit(e) {
+    e.preventDefault()
+    const ret = await api.post('/incidents', this.state, {
+      headers: {authorization: localStorage.getItem('ongId')}
+    })
+
+    if (ret.data.id) {
+      alert('Novo caso cadastrado')
+
+      return this.props.history.push('/profile ')
     }
 
+    alert('Erro na inserção do caso!')
   }
 
   render() {
@@ -27,10 +49,10 @@ class NewIncidend extends Component{
                     </Link>
               </section>
               
-              <form>
-                <input placeholder='Titulo do Caso'></input>
-                <textarea placeholder='Descrição'></textarea>
-                <input placeholder='Valor em Reais'></input>
+              <form onSubmit={async (e) => await this.handleSubmit(e)}>
+                <input placeholder='Titulo do Caso' name='title' value={this.state.title} onChange={this.changeState} ></input>
+                <textarea placeholder='Descrição' name='description' value={this.state.description} onChange={this.changeState} ></textarea>
+                <input placeholder='Valor em Reais' name='value' value={this.state.value} onChange={this.changeState} ></input>
                 <button className='button' type='submit'>Cadastrar</button>
               </form>
           </div>
@@ -39,4 +61,4 @@ class NewIncidend extends Component{
   }
 }
 
-export default NewIncidend;
+export default withRouter(NewIncidend);
