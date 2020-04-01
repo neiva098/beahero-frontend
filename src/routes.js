@@ -1,4 +1,4 @@
-import { BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import React, { Component } from 'react'
 
 import LogIn from './components/pages/logOn'
@@ -18,12 +18,12 @@ class Routes extends Component{
     render() {
       return(
         <BrowserRouter>
-            <switch>
+            <Switch>
                 <Route path='/' exact component={LogIn}></Route>
                 <Route path='/register' component={Register}></Route>
                 <Route path='/profile' component={Profile}></Route>
                 <Route path='/incidents/new' component={NewIncident}></Route>
-            </switch>
+            </Switch>
         </BrowserRouter>
       )
     }
