@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import LogIn from './components/pages/logOn'
 import Register from './components/pages/register'
 import Profile from './components/pages/profile'
+import NewIncident from './components/pages/newIncident'
 
 class Routes extends Component{
     constructor(props){
@@ -21,6 +22,7 @@ class Routes extends Component{
                 <Route path='/' exact component={LogIn}></Route>
                 <Route path='/register' component={Register}></Route>
                 <Route path='/profile' component={Profile}></Route>
+                <Route path='/incidents/new' component={NewIncident}></Route>
             </switch>
         </BrowserRouter>
       )
