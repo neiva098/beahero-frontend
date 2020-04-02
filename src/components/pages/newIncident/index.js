@@ -29,7 +29,7 @@ class NewIncidend extends Component{
     if (ret.data.id) {
       alert('Novo caso cadastrado')
 
-      return this.props.history.push('/profile ')
+      return this.props.history.push('/profile')
     }
 
     alert('Erro na inserção do caso!')
